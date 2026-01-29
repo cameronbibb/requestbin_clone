@@ -4,9 +4,9 @@ const RequestList = ({ requests, setSelectedRequest }) => {
   return (
     <ul className="request-list">
       {requests.map((req) => {
-        {
-          console.log(req);
-        }
+        // {
+        //   console.log(req);
+        // }
         return (
           <RequestLine
             key={req.id}

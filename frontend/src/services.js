@@ -15,7 +15,6 @@ async function getRequestList(binPath) {
 
 async function getRequest(requestId) {
   const result = await axios.get(`${URL}/requests/${requestId}`);
-  console.log(result.data);
   return result.data;
 }
 

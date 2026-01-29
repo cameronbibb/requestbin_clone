@@ -6,11 +6,11 @@ const HeadersAndQuery = ({ obj, type }) => {
       <b>{type}</b>
       {array.map((nestedArr, idx) => {
         return (
-        <> 
-          <p key={idx}> {nestedArr[0]}: {nestedArr[1]}</p>
-        </>
-
-      )
+          <p key={idx}>
+            {" "}
+            {nestedArr[0]}: {nestedArr[1]}
+          </p>
+        );
       })}
     </>
   );
