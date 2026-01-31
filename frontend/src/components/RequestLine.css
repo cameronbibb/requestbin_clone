@@ -1,12 +1,5 @@
-.container {
-  width: 65%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.copy_style {
-  width: 100px;
+.request_line{
+  min-width: 250px;
   background-color: #656565;
   color: white;
   padding: 10px;
@@ -15,7 +8,7 @@
   align-content: center;
 }
 
-.copy_style:hover {
+.request_line:hover {
   background-color: #707070;
   color: white;
 }

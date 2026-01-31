@@ -1,3 +1,5 @@
+import "./EndpointHeader.css";
+
 const EndpointHeader = ({ binPath }) => {
   const endpoint = `${import.meta.env.VITE_API_URL}/api/endpoints/${binPath}`;
 

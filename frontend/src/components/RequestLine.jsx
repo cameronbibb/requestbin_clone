@@ -1,4 +1,5 @@
 import helpers from "../services";
+import "./RequestLine.css";
 
 const RequestLine = ({ request, setSelectedRequest }) => {
   const path = helpers.removeBinFromPath(request.http_path);
@@ -20,7 +21,7 @@ const RequestLine = ({ request, setSelectedRequest }) => {
 
   return (
     <a href="#" onClick={onClick}>
-      <li className="request_li">
+      <li className="request_line">
         {convertDbTimetoDateObj(time).toLocaleTimeString()} {method} {path}
       </li>
     </a>

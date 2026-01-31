@@ -1,5 +1,6 @@
 import HeadersAndQuery from "./HeadersAndQuery";
 import SharedDetails from "./SharedDetails";
+import "./RequestDetails.css";
 
 const RequestDetails = ({ request }) => {
   // console.log(Object.entries(request.payload));
