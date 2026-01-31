@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <div className="home-page">
-        <h1>Request Bin</h1>
+        <h1>ORIGIN*</h1>
         <button className="copy_style" onClick={newBinHandler}>
           Create a bin
         </button>
