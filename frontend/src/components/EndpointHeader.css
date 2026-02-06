@@ -1,6 +1,8 @@
 .endpoint-header {
-  margin-top: 20px;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 50px;
 }
 
@@ -9,4 +11,8 @@
   padding: 8px 10px;
   border-radius: 5px;
   margin-left: 5px;
+}
+
+.copy_button {
+  margin-left: 20px;
 }

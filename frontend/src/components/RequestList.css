@@ -1,7 +1,8 @@
 .request-list {
   text-align: left;
   list-style: none;
-  align-self: flex-start;
+  align-self:center;
   margin: 100px;
   margin-top: 0px;
+  background-color: rgb(224, 224, 224);
 }
