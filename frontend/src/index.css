@@ -28,7 +28,6 @@ body {
   margin: 0;
   color: var(--text-color);
   background-color: var(--bg-color);
-  padding-top: 40px;
 }
 
 /* === Element Defaults === */
