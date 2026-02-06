@@ -6,6 +6,7 @@ import helpers from "../../services";
 import RequestList from "../RequestList/RequestList";
 import RequestDetails from "../RequestDetails/RequestDetails";
 import "./Bin.css";
+import banner_logo from "../../assets/origin_logo_white.svg";
 
 const Bin = () => {
   const { bin_path } = useParams();
@@ -34,7 +35,10 @@ const Bin = () => {
   }, [bin_path]);
 
   return (
-    <div>
+    <>
+      <div className="banner">
+        <img src={banner_logo} alt="Origin*" className="logo_banner" />
+      </div>
       <EndpointHeader binPath={bin_path} />
       <div className="bin_container">
         <RequestList
@@ -45,7 +49,7 @@ const Bin = () => {
           {selectedRequest && <RequestDetails request={selectedRequest} />}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,5 +1,18 @@
+.banner {
+  height: 40px;
+  width: 100%;
+  background-color: #852DB5;
+  align-items: center;
+  display: flex;
+  padding-left: 10px;
+}
+
+.banner img {
+  width: 100px;
+}
+
 .bin_container {
-  width: 65%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
