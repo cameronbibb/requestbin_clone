@@ -1,3 +1,11 @@
-.request-details p {
+/* .request-details p {
   overflow-wrap: break-word;
+} */
+
+.request-details {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  border-radius: 5px;
 }

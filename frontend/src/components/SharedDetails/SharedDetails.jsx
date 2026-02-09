@@ -1,11 +1,17 @@
-import helpers from '../../services'
+import helpers from "../../services";
 
-const SharedDetails = ({request}) => {
+const SharedDetails = ({ request }) => {
   return (
     <>
-      <p><b>HTTP Request:</b> {request.payload.method} {helpers.removeBinFromPath(request.payload.path)} {request.date.toJSON()}</p>
+      <div className="request-details">
+        <p>
+          <b>HTTP Request:</b> {request.payload.method}{" "}
+          {helpers.removeBinFromPath(request.payload.path)}{" "}
+          {request.date.toJSON()}
+        </p>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default SharedDetails
+export default SharedDetails;
