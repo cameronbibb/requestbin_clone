@@ -23,22 +23,42 @@
 .headers-toggle {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   border-bottom: 2px solid rgb(230, 230, 230);
   color: rgb(130, 130, 130);
   font-size: 14px;
   width: 100%;
+  gap: 10px;
+}
+
+.headers-toggle > div:first-child {
+  flex: 1;
+  min-width: 0;
 }
 
 .headers-toggle span {
   margin-right: 8px;
 }
 
+.copy-link {
+  color: #2563eb;
+  cursor: pointer;
+  margin-right: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.copy-link:hover {
+  color: #1d4ed8;
+}
+
 .headers-list {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  font-size: 14px;
 }
 
 .header-row {
@@ -49,6 +69,15 @@
 .header-header {
   display: flex;
   font-weight: bold;
-  min-width: 200px;
+  min-width: 300px;
+  flex-shrink: 0;
+}
+
+.header-value {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
