@@ -1,5 +1,6 @@
 import HeadersAndQuery from "../HeadersAndQuery/HeadersAndQuery";
 import SharedDetails from "../SharedDetails/SharedDetails";
+import Body from "../Body/Body";
 import "./RequestDetails.css";
 
 const RequestDetails = ({ request }) => {
@@ -24,12 +25,7 @@ Body component (if exists)
           obj={request.payload.query}
         />
       )}
-      {request.payload.body && (
-        <>
-          <b>{"Body"}</b>
-          <pre>{JSON.stringify(request.payload.body)}</pre>
-        </>
-      )}
+      {request.payload.body && <Body body={request.payload.body} />}
     </div>
   );
 };
