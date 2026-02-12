@@ -43,6 +43,10 @@ const Body = ({ body }) => {
               collapsed={false}
               displayDataTypes={false}
               theme="monokai"
+              style={{
+                padding: "10px",
+                borderRadius: "5px",
+              }}
             />
           )}
         </div>
