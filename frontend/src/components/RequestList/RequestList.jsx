@@ -1,5 +1,7 @@
 import RequestLine from "../RequestLine/RequestLine";
 import "./RequestList.css";
+import helpers from "../../services";
+import { FaTrash } from "react-icons/fa";
 
 const RequestList = ({
   requests,
@@ -26,6 +28,11 @@ const RequestList = ({
           );
         })}
       </ul>
+      {requests.length > 0 && (
+        <div className="delete-all-button" onClick={helpers.deleteAllRequests}>
+          <FaTrash /> DELETE ALL
+        </div>
+      )}
     </div>
   );
 };

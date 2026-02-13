@@ -31,10 +31,15 @@ function convertDbTimetoDateObj(databaseTime) {
   return new Date(databaseTime);
 }
 
+function deleteAllRequests() {
+  console.log("all requests deleted!!");
+}
+
 export default {
   createBin,
   getRequestList,
   getRequest,
   removeBinFromPath,
   convertDbTimetoDateObj,
+  deleteAllRequests,
 };
