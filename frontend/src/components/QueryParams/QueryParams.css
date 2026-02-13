@@ -59,6 +59,10 @@
   display: table-row;
 }
 
+.query-params-row:hover {
+  background-color: #f9f5fb;
+}
+
 .query-params-header {
   display: table-cell;
   font-weight: bold;

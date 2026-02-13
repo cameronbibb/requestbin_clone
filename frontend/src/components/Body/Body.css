@@ -48,11 +48,6 @@
   background-color: #F3EAF8;
 }
 
-/* .body-toggle > div:first-child {
-  flex: 1;
-  min-width: 0;
-} */
-
 .body-toggle span {
   margin-right: 8px;
 }
@@ -72,31 +67,3 @@
 .body-display {
   padding: 10px;
 }
-
-/* .headers-list {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  font-size: 14px;
-}
-
-.header-row {
-  display: flex;
-  flex-direction: row;
-}
-
-.header-header {
-  display: flex;
-  font-weight: bold;
-  min-width: 300px;
-  flex-shrink: 0;
-}
-
-.header-value {
-  display: flex;
-  flex: 1;
-  min-width: 0;
-  word-break: break-all;
-  overflow-wrap: break-word;
-} */
-

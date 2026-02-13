@@ -64,6 +64,10 @@
   display: table-row;
 }
 
+.header-row:hover {
+  background-color: #f9f5fb;
+}
+
 .header-header {
   display: table-cell;
   font-weight: bold;
