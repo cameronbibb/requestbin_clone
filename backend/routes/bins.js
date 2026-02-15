@@ -51,12 +51,16 @@ router.delete('/:bin_path', async (req, res, next) => {
 });
 
 router.delete('/:bin_path/requests/:request_id', async (req, res, next) => {
+  const binPath = req.params.bin_path;
   const requestId = req.params.request_id;
   try {
     const request = await postgres.getRequest(requestId);
     await mongoDb.deleteRequest(request.mongo_id);
     await postgres.deleteRequest(requestId);
-    res.json({ success: 'ok' });
+    const io = req.app.get('socketio');
+    io.to(binPath).emit('requestDeleted', requestId);
+
+    return res.sendStatus(200);
   } catch (error) {
     next(error);
   }

@@ -19,12 +19,25 @@ const Bin = () => {
 
     const requestDetails = async () => {
       const list = await helpers.getRequestList(bin_path);
-      await setRequestList(list);
+      setRequestList(list);
     };
     requestDetails();
 
     const handleNewRequest = (newRequest) => {
       setRequestList((prev) => [...prev, newRequest]);
+    };
+
+    const handleRequestDeleted = (requestId) => {
+      setRequestList((prev) =>
+        prev.filter((req) => req.id !== Number(requestId)),
+      );
+      setSelectedRequestID((prev) => {
+        if (prev === Number(requestId)) {
+          setSelectedRequest(null);
+          return null;
+        }
+        return prev;
+      });
     };
 
     const handleAllRequestsDeleted = () => {
@@ -34,10 +47,13 @@ const Bin = () => {
     };
 
     socket.on("newRequest", handleNewRequest);
+    socket.on("requestDeleted", handleRequestDeleted);
     socket.on("allRequestsDeleted", handleAllRequestsDeleted);
 
     return () => {
       socket.off("newRequest", handleNewRequest);
+      socket.off("requestDeleted", handleRequestDeleted);
+      socket.off("allRequestsDeleted", handleAllRequestsDeleted);
       socket.emit("leaveBinRoom", bin_path);
     };
   }, [bin_path]);

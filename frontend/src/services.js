@@ -31,12 +31,14 @@ function convertDbTimetoDateObj(databaseTime) {
   return new Date(databaseTime);
 }
 
-function deleteAllRequests(binPath) {
-  console.log("all requests deleted!!");
-  (async () => {
-    const result = await axios.delete(`${URL}/${binPath}/requests`);
-    return result.status;
-  })();
+async function deleteRequest(binPath, requestId) {
+  const result = await axios.delete(`${URL}/${binPath}/requests/${requestId}`);
+  return result.status;
+}
+
+async function deleteAllRequests(binPath) {
+  const result = await axios.delete(`${URL}/${binPath}/requests`);
+  return result.status;
 }
 
 export default {
@@ -45,5 +47,6 @@ export default {
   getRequest,
   removeBinFromPath,
   convertDbTimetoDateObj,
+  deleteRequest,
   deleteAllRequests,
 };

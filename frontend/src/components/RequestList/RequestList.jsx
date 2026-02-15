@@ -34,6 +34,7 @@ const RequestList = ({
               setSelectedRequest={setSelectedRequest}
               setSelectedRequestID={setSelectedRequestID}
               selectedRequestID={selectedRequestID}
+              binPath={binPath}
             />
           );
         })}
