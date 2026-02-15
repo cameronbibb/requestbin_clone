@@ -27,7 +27,14 @@ const Bin = () => {
       setRequestList((prev) => [...prev, newRequest]);
     };
 
+    const handleAllRequestsDeleted = () => {
+      setRequestList([]);
+      setSelectedRequest(null);
+      setSelectedRequestID(null);
+    };
+
     socket.on("newRequest", handleNewRequest);
+    socket.on("allRequestsDeleted", handleAllRequestsDeleted);
 
     return () => {
       socket.off("newRequest", handleNewRequest);
@@ -61,6 +68,7 @@ const Bin = () => {
             setSelectedRequest={setSelectedRequest}
             setSelectedRequestID={setSelectedRequestID}
             selectedRequestID={selectedRequestID}
+            binPath={bin_path}
           />
           <div className="bin_details">
             {selectedRequest && <RequestDetails request={selectedRequest} />}

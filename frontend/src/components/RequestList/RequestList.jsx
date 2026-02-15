@@ -10,11 +10,12 @@ const RequestList = ({
   setSelectedRequest,
   setSelectedRequestID,
   selectedRequestID,
+  binPath,
 }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const handleConfirmDelete = () => {
-    helpers.deleteAllRequests();
+    helpers.deleteAllRequests(binPath);
     setShowDeleteModal(false);
   };
 

@@ -69,7 +69,10 @@ router.delete('/:bin_path/requests', async (req, res, next) => {
     const promises = allRequests.map((request) => mongoDb.deleteRequest(request.mongo_id));
     promises.push(postgres.deleteAllRequestsInBin(binPath));
     await Promise.all(promises);
-    return res.json({ success: 'ok' });
+    const io = req.app.get('socketio');
+    io.to(binPath).emit('allRequestsDeleted');
+
+    return res.sendStatus(200);
   } catch (error) {
     return next(error);
   }
