@@ -26,6 +26,7 @@ function removeBinFromPath(path) {
 }
 
 function convertDbTimetoDateObj(databaseTime) {
+  console.log("convertDBTime called");
   databaseTime =
     databaseTime.slice(0, 10) + "T" + databaseTime.slice(11, 23) + "Z";
   return new Date(databaseTime);

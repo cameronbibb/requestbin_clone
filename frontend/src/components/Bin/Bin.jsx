@@ -17,11 +17,10 @@ const Bin = () => {
   useEffect(() => {
     socket.emit("joinBinRoom", bin_path);
 
-    const requestDetails = async () => {
+    (async () => {
       const list = await helpers.getRequestList(bin_path);
       setRequestList(list);
-    };
-    requestDetails();
+    })();
 
     const handleNewRequest = (newRequest) => {
       setRequestList((prev) => [...prev, newRequest]);
