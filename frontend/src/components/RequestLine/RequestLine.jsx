@@ -16,7 +16,7 @@ const RequestLine = ({
   const handleGetRequestDetails = async (event) => {
     event.preventDefault();
     const req = await helpers.getRequest(request.id);
-    req.date = helpers.convertDbTimetoDateObj(time);
+    req.date = time;
     setSelectedRequest(req);
     setSelectedRequestID(request.id);
   };
@@ -32,9 +32,7 @@ const RequestLine = ({
       className={`request_line_item ${selectedRequestID === request.id ? "selected" : ""}`}
     >
       <a href="#" onClick={handleGetRequestDetails} className="request_line">
-        <div className="request_line_time">
-          {helpers.convertDbTimetoDateObj(time).toLocaleTimeString()}
-        </div>
+        <div className="request_line_time">{time.toLocaleTimeString()}</div>
         <div className={`request_line_method method-${method.toLowerCase()}`}>
           {method}
         </div>

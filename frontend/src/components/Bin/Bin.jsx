@@ -19,9 +19,14 @@ const Bin = () => {
 
     (async () => {
       const list = await helpers.getRequestList(bin_path);
-      setRequestList(list);
+      const converted = list.map((request) => ({
+        ...request,
+        received_at: helpers.convertDbTimetoDateObj(request.received_at),
+      }));
+      setRequestList(converted);
     })();
 
+    // ----- Socket Event Handlers ----------------------- //
     const handleNewRequest = (newRequest) => {
       setRequestList((prev) => [...prev, newRequest]);
     };
@@ -44,6 +49,7 @@ const Bin = () => {
       setSelectedRequest(null);
       setSelectedRequestID(null);
     };
+    // ------------------------------------------------ //
 
     socket.on("newRequest", handleNewRequest);
     socket.on("requestDeleted", handleRequestDeleted);
@@ -61,7 +67,7 @@ const Bin = () => {
     const selectFirstRequest = async () => {
       if (requestList.length > 0 && !selectedRequest) {
         const req = await helpers.getRequest(requestList[0].id);
-        req.date = helpers.convertDbTimetoDateObj(requestList[0].received_at);
+        req.date = requestList[0].received_at;
         setSelectedRequest(req);
         setSelectedRequestID(requestList[0].id);
       }
