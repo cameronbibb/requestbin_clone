@@ -28,7 +28,11 @@ const Bin = () => {
 
     // ----- Socket Event Handlers ----------------------- //
     const handleNewRequest = (newRequest) => {
-      setRequestList((prev) => [...prev, newRequest]);
+      const newRequestMod = {
+        ...newRequest,
+        received_at: helpers.convertDbTimetoDateObj(newRequest.received_at),
+      };
+      setRequestList((prev) => [newRequestMod, ...prev]);
     };
 
     const handleRequestDeleted = (requestId) => {
@@ -90,7 +94,7 @@ const Bin = () => {
         <EndpointHeader binPath={bin_path} />
         <div className="bin_container">
           <RequestList
-            requests={requestList}
+            requests={groupedRequests}
             setSelectedRequest={setSelectedRequest}
             setSelectedRequestID={setSelectedRequestID}
             selectedRequestID={selectedRequestID}

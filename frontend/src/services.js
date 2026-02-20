@@ -29,7 +29,6 @@ function convertDbTimetoDateObj(databaseTime) {
   databaseTime =
     databaseTime.slice(0, 10) + "T" + databaseTime.slice(11, 23) + "Z";
   const dateObj = new Date(databaseTime);
-  console.log(dateObj);
   return dateObj;
   // return new Date(databaseTime);
 }
@@ -70,6 +69,21 @@ function groupRequestsByDate(requestsList) {
   return groupedRequests;
 }
 
+function getRequestDate(date) {
+  const today = new Date().toLocaleDateString();
+  let yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  yesterday = yesterday.toLocaleDateString();
+
+  if (date === today) {
+    return "Today";
+  } else if (date === yesterday) {
+    return "Yesterday";
+  } else {
+    return date;
+  }
+}
+
 export default {
   createBin,
   getRequestList,
@@ -79,4 +93,5 @@ export default {
   deleteRequest,
   deleteAllRequests,
   groupRequestsByDate,
+  getRequestDate,
 };

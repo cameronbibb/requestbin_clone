@@ -24,18 +24,25 @@ const RequestList = ({
       <div className="request-options">
         Options go here for live/pause and search
       </div>
-      <div className="request-header">Requests</div>
       <ul className="request-list">
-        {requests.map((req) => {
+        {requests.map((reqGroup) => {
+          const requestDate = helpers.getRequestDate(reqGroup.dateReceived);
           return (
-            <RequestLine
-              key={req.id}
-              request={req}
-              setSelectedRequest={setSelectedRequest}
-              setSelectedRequestID={setSelectedRequestID}
-              selectedRequestID={selectedRequestID}
-              binPath={binPath}
-            />
+            <div key={reqGroup.dateReceived}>
+              <div className="request-header">{requestDate}</div>
+              {reqGroup.requests.map((req) => {
+                return (
+                  <RequestLine
+                    key={req.id}
+                    request={req}
+                    setSelectedRequest={setSelectedRequest}
+                    setSelectedRequestID={setSelectedRequestID}
+                    selectedRequestID={selectedRequestID}
+                    binPath={binPath}
+                  />
+                );
+              })}
+            </div>
           );
         })}
       </ul>
