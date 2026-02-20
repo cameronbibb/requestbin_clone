@@ -3,6 +3,7 @@
   align-items: stretch;
   font-weight: 600;
   border-bottom: 1px solid rgb(230, 230, 230);
+  min-width: 0;
 }
 
 .request_line_item:hover {
@@ -21,6 +22,7 @@
   align-items: center;
   text-decoration: none;
   flex: 1;
+  min-width: 0;
 }
 
 .request_line_time {
@@ -45,12 +47,14 @@
 }
 
 .request_line_path {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   padding-left: 20px;
   font-size: 14px;
   color: black;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .method-get {
