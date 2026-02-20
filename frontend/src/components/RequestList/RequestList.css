@@ -15,10 +15,15 @@
 }
 
 .request-header {
+  display: flex;
   padding: 10px;
   font-weight: bold;
-  border-bottom: 1px solid gray;
-  flex-shrink: 0;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  justify-content: flex-start;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
 }
 
 .request-list {
